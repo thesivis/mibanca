@@ -16,7 +16,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "pais")
-@SequenceGenerator(name = "seqPais", sequence_pais = "Id", allocationSize = 1)
+@SequenceGenerator(name = "seqPais" , sequenceName = "sequence_pais", allocationSize = 1)
 
 public class Pais {
     @Id
