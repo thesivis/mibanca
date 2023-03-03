@@ -20,6 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
+
 public class Formacao {
     @Id
     @GeneratedValue (generator = "seq_formacao_id", strategy = GenerationType.SEQUENCE)
@@ -31,7 +32,9 @@ public class Formacao {
     @Column(name="cargaHoraria")
     private float cargaHoraria;
 
-    //@ManyToOne()
+    @ManyToOne 
+    //private Curso curso;
+    //private Tipo_Banca tipo_Banca;
 
     @Override
     public int hashCode() {
