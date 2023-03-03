@@ -42,6 +42,8 @@ public class Pessoa {
 
     @Column(name = "nome", length = 200)
     public String nome;
+
+    @Column(name = "cpf", length = 200)
     private String cpf;
 
     @Column(name = "dataNasc")
