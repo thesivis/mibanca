@@ -1,6 +1,5 @@
-package br.ufmt.mibanca.apresentacao;
+package br.ufmt.mibanca.pais;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,26 +16,20 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "pais")
-@SequenceGenerator(name = "seqPais", sequenceName = "Pais_id", allocationSize = 1)
+@SequenceGenerator(name = "seqPais", sequenceName = "Id", allocationSize = 1)
 
 public class Pais {
     @Id
     @GeneratedValue(generator = "seqApresentacao", strategy = GenerationType.SEQUENCE)
-
-    private int id_pais;
+    private int id;
     @Column(name = "nome", length = 200)
-    
     private String nome_pais;
-    @Column(name = "data_apresentacao")
-   
-    @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
-    
+    @Column(name = "data_apresentacao") 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + id_pais;
+        result = prime * result + id;
         return result;
     }
     @Override
@@ -48,7 +41,7 @@ public class Pais {
         if (getClass() != obj.getClass())
             return false;
         Pais other = (Pais) obj;
-        if (id_pais != other.id_pais)
+        if (id_pais != other.id)
             return false;
         return true;
     }
