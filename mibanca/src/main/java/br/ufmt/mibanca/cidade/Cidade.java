@@ -5,12 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
-
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,9 +24,17 @@ public class Cidade {
     @Id
     @GeneratedValue(generator = "seqCidade", strategy = GenerationType.SEQUENCE)
     private int id;
+
     @Column(name = "nome", length = 200)
     private String nome;
-    //@ManyToAny
+
+    @Column(name = "cod_postal", length = 200)
+    private int cod_postal;
+    
+    @ManyToOne
+    @JoinColumn (columnDefinition = "id_estado", referencedColumnName = "id")
+    private Estado estado;
+    
 
     @Override
     public int hashCode() {
@@ -50,5 +57,5 @@ public class Cidade {
         return true;
     }
 
-    
+    private static final class Estado {}
 }
