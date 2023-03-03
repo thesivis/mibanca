@@ -31,7 +31,7 @@ public class Instituto {
     private String nome;
 
     // @ManyToOne
-    // private int idCidade;
+    // private Cidade cidade;
 
     @Column(name = "Universidade", length = 100)
     private String Universidade;
