@@ -18,23 +18,37 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name = "Banca")
+@Entity // informando que se trata de uma entidade
+@Table(name = "Banca") // inserindo nome da tabela
 @SequenceGenerator(name = "seqBanca", sequenceName = "seq_banca_id", allocationSize = 1)
 @Getter
 @Setter
+// clica em pessoa e depois aperta crlt + .
+// vai em generate hashcode and equals e seleciona o atributo de comparação
+
+// hashcode: gerar chave unica para um objeto em especifico
+// equals: verifica se sao iguais atraves de verdadeiro e falso, atrave do
+// atributo "id" que no caso é RG(selecionado).
 
 public class Banca {
     @Id
-    @GeneratedValue
-    private int id_banca;
-    private int id_cidade;
-    private int id_formacao;
+    @GeneratedValue(generator = "seq_banca_id", strategy = GenerationType.SEQUENCE) // definindo atributo como atributo gerado.
+    private int id;
+    // generator = quem
+    // strategy = tipo do gerador, que será gerencial (postgresql)
+    //
+
+    //private int id_cidade;
+    //private int id_formacao;
 
      @Column(name = "Banca_DataBanca")
     @Temporal(TemporalType.DATE)
-    public Date PessoaBanca_DataBanca;
-    //@ManyToAny
+    public Date data;
+
+
+    //@ManyToOne
+    //private Formacao formacao
+    //private Cidade cidade
 
     @Override
     public int hashCode() {
