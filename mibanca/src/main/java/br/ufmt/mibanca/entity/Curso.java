@@ -3,17 +3,34 @@ package br.ufmt.mibanca.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "curso")
+@SequenceGenerator(name = "seqCurso", sequenceName = "seq_curso_id")
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class Curso {
 
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(generator = "seqCurso",strategy = GenerationType.SEQUENCE)
+    @EqualsAndHashCode.Include
     private long id;
 
     @Column(name = "nome", length = 100, nullable = false)
@@ -28,46 +45,6 @@ public class Curso {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "institudo_id", referencedColumnName = "id",nullable = false)
     private Instituto instituto;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public int getCargaHoraria() {
-        return cargaHoraria;
-    }
-
-    public void setCargaHoraria(int cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
-    }
-
-    public Instituto getInstituto() {
-        return instituto;
-    }
-
-    public void setInstituto(Instituto instituto) {
-        this.instituto = instituto;
-    }
 
     static final class Instituto{
 
