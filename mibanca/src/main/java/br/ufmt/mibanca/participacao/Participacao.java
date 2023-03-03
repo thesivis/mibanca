@@ -1,6 +1,11 @@
 package br.ufmt.mibanca.participacao;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -16,11 +21,14 @@ import lombok.Setter;
 @Setter
 public class Participacao {
     
+    @Id
+    @GeneratedValue(generator = "seqParticipacao", strategy = GenerationType.SEQUENCE)
     private int id_participacao;
-    private int id_tipo_membro;
-    private int id_membro;
     private Boolean presente;
     private String motivo_ausencia;
+    //@ManyToOne
+    //private tipo_membro tipo_membro;
+    //private membro membro;
     @Override
     public int hashCode() {
         final int prime = 31;
