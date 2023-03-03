@@ -15,7 +15,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "cidade")
-@SequenceGenerator(name = "seqCidade", sequenceName = "seq_cliente_id", allocationSize = 1)
+@SequenceGenerator(name = "seqCidade", sequenceName = "seq_cidade_id", allocationSize = 1)
 @Getter
 @Setter
 
@@ -28,7 +28,7 @@ public class Cidade {
     @Column(name = "nome", length = 200)
     private String nome;
 
-    @Column(name = "cod_postal", length = 200)
+    @Column(name = "cod_postal", length = 15)
     private int cod_postal;
     
     @ManyToOne
