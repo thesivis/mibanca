@@ -31,9 +31,9 @@ public class Cidade {
     @Column(name = "cod_postal", length = 15)
     private int cod_postal;
     
-    @ManyToOne
-    @JoinColumn (columnDefinition = "id_estado", referencedColumnName = "id")
-    private Estado estado;
+    //@ManyToOne
+    //@JoinColumn (columnDefinition = "id_estado", referencedColumnName = "id")
+    //private Estado estado;
     
 
     @Override
@@ -57,5 +57,4 @@ public class Cidade {
         return true;
     }
 
-    private static final class Estado {}
 }
