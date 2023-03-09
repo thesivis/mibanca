@@ -17,14 +17,15 @@ import lombok.Setter;
 @Entity
 @Table(name = "pais")
 @SequenceGenerator(name = "seqPais" , sequenceName = "sequence_pais", allocationSize = 1)
-
 public class Pais {
     @Id
     @GeneratedValue(generator = "seqPais", strategy = GenerationType.SEQUENCE)
     private int id;
     @Column(name = "nome", length = 200)
-    private String nome_pais;
-    
+    private String nome;   
+    @Column(name = "codTelefone", length = 200)
+    private int codTelefone;
+      
     @Override
     public int hashCode() {
         final int prime = 31;
