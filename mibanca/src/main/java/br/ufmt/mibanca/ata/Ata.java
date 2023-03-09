@@ -26,15 +26,16 @@ public class Ata {
     @GeneratedValue(generator = "seqAta", strategy = GenerationType.SEQUENCE)
     private int id;
     
-    @Column(name = "nome", length = 200)
-    private String nomeAluno;
-    
+    @Column(name = "texto", length = 200)
+    private String textoAta;
+
     @Column(name = "data_ata")
     @Temporal(TemporalType.DATE)
     private Date data;
 
-    
+    //private TipoAta id_tipoAta
     //private Banca id_banca
+
 
     @Override
     public int hashCode() {
