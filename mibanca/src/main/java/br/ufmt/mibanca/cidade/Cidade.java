@@ -1,5 +1,7 @@
 package br.ufmt.mibanca.cidade;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,10 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import br.ufmt.mibanca.estado.Estado;
+import br.ufmt.mibanca.instituto.Instituto;
+import br.ufmt.mibanca.banca.Banca;
 import lombok.Getter;
 import lombok.Setter;
 
