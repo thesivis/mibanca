@@ -27,10 +27,14 @@ public class Apresentacao {
 
     private int id;
     @Column(name = "nome", length = 200)
-    private String nome;
+    private String banca;
     @Column(name = "data_apresentacao")
     @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
+     Date dataApresentacao;
+     boolean situacao;
+     float media;
+     
+
     
     @Override
     public int hashCode() {
