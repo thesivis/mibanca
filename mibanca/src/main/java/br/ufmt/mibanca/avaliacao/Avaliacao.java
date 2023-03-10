@@ -1,14 +1,21 @@
 package br.ufmt.mibanca.avaliacao;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import br.ufmt.mibanca.apresentacao.Apresentacao;
+import br.ufmt.mibanca.banca.Banca;
+import br.ufmt.mibanca.membro.Membro;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,10 +31,18 @@ public class Avaliacao {
     @Id
     @GeneratedValue(generator = "Avaliacao", strategy = GenerationType.SEQUENCE)
     private int id_avaliacao;
-    private int id_banca;
+    @ManyToOne
+    @JoinColumn(name="banca_id")
+    private Banca idBanca;
+    @ManyToOne
+    @JoinColumn(name="membro_id")
+    private Membro idMembro;
+    @ManyToOne
+    @JoinColumn(name="apresentacao_id")
+    private Apresentacao idApresentacao;
     private float nota_avaliacao;
     private String comentario_avalicao;
-    
+
     //@ManyToOne
     //private tipo_membro tipo_membro;
     //private membro membro;
@@ -53,3 +68,4 @@ public class Avaliacao {
     }
 
 }
+
