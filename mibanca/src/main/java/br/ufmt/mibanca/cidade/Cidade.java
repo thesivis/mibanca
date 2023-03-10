@@ -5,8 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -29,12 +30,17 @@ public class Cidade {
     private String nome;
 
     @Column(name = "cod_postal", length = 15)
-    private int cod_postal;
+    private int codPostal;
     
-    //@ManyToOne
-    //@JoinColumn (columnDefinition = "id_estado", referencedColumnName = "id")
-    //private Estado estado;
-    
+    @ManyToOne
+    @JoinColumn (name = "estado_id")
+    private Estado estado;
+
+    @OneToMany(mappedBy = "cidade")
+    private List<Banca> bancas;
+
+    @OneToMany(mappedBy = "cidade")
+    private List<Instituto> institutos;
 
     @Override
     public int hashCode() {
