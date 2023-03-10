@@ -7,11 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.ufmt.mibanca.banca.Banca;
+import br.ufmt.mibanca.tipoata.tipoata;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,7 +27,7 @@ import lombok.Setter;
 public class Ata {
     
     @Id
-    @GeneratedValue(generator = "seqAta", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator ="seqAta", strategy = GenerationType.SEQUENCE)
     private int id;
     
     @Column(name = "texto", length = 2100)
@@ -33,8 +37,13 @@ public class Ata {
     @Temporal(TemporalType.DATE)
     private Date data;
 
-    //private TipoAta id_tipoAta
-    //private Banca id_banca
+    @ManyToOne
+    @JoinColumn(name = "tipo_ata_id")
+    private tipoata tipo;
+    
+    @ManyToOne
+    @JoinColumn(name = "banca_id")
+    private Banca banca;
 
 
     @Override
