@@ -23,7 +23,7 @@ public class Pais {
     private int id;
     @Column(name = "nome", length = 200)
     private String nome;   
-    @Column(name = "codTelefone", length = 200)
+    @Column(name = "cod_telefone", length = 20)
     private int codTelefone;
       
     @Override
