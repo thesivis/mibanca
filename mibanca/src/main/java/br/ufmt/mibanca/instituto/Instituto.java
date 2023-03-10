@@ -34,7 +34,7 @@ public class Instituto {
     // private Cidade cidade;
 
     @Column(name = "universidade", length = 100)
-    private String Universidade;
+    private String universidade;
 
     @Column(name = "ativo")
     private boolean ativo;
