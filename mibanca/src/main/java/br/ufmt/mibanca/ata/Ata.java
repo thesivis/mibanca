@@ -17,7 +17,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "ata")
-@SequenceGenerator(name = "seqAta", sequenceName="seq_cliente_id", allocationSize=1)
+@SequenceGenerator(name = "seqAta", sequenceName="seq_ata_id", allocationSize=1)
 @Getter
 @Setter
 public class Ata {
@@ -26,10 +26,10 @@ public class Ata {
     @GeneratedValue(generator = "seqAta", strategy = GenerationType.SEQUENCE)
     private int id;
     
-    @Column(name = "texto", length = 200)
+    @Column(name = "texto", length = 2100)
     private String textoAta;
 
-    @Column(name = "data_ata")
+    @Column(name = "data")
     @Temporal(TemporalType.DATE)
     private Date data;
 
