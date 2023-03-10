@@ -16,7 +16,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "pais")
-@SequenceGenerator(name = "seqPais" , sequenceName = "sequence_pais", allocationSize = 1)
+@SequenceGenerator(name = "seqPais" , sequenceName = "sequence_pais_id", allocationSize = 1)
 public class Pais {
     @Id
     @GeneratedValue(generator = "seqPais", strategy = GenerationType.SEQUENCE)
