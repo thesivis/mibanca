@@ -33,10 +33,10 @@ public class Instituto {
     // @ManyToOne
     // private Cidade cidade;
 
-    @Column(name = "Universidade", length = 100)
+    @Column(name = "universidade", length = 100)
     private String Universidade;
 
-    @Column(name = "Ativo")
+    @Column(name = "ativo")
     private boolean ativo;
     @Override
     public int hashCode() {
