@@ -1,16 +1,20 @@
 package br.ufmt.mibanca.pais;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.ufmt.mibanca.estado.Estado;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,7 +29,10 @@ public class Pais {
     private String nome;   
     @Column(name = "cod_telefone", length = 20)
     private int codTelefone;
-      
+
+    @OneToMany(mappedBy = "pais") 
+    private List<Estado> estados;
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -42,9 +49,11 @@ public class Pais {
         if (getClass() != obj.getClass())
             return false;
         Pais other = (Pais) obj;
-        if (id_pais != other.id)
+        if (id != other.id)
             return false;
         return true;
     }
     //private Cidade cidade;
 }
+
+
