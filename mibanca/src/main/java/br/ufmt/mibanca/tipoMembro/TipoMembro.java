@@ -1,13 +1,17 @@
 package br.ufmt.mibanca.tipoMembro;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import br.ufmt.mibanca.participacao.Participacao;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,8 +27,10 @@ public class TipoMembro {
     private int id;
     @Column(name = "enum")
     private int enumerador;
-    @Column(name = "tipo", length = 50)
+    @Column(length = 50)
     private String tipo;
+    @OneToMany(mappedBy = "tipoMembro")
+    private List<Participacao> participacoes;
 
     @Override
     public int hashCode() {
