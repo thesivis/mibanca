@@ -24,14 +24,16 @@ public class Avaliacao {
     @Id
     @GeneratedValue(generator = "Avaliacao", strategy = GenerationType.SEQUENCE)
     private int id_avaliacao;
-    private Boolean presente;
-    private String motivo_ausencia;
+    private int id_banca;
+    private float nota_avaliacao;
+    private String comentario_avalicao;
+    
     //@ManyToOne
     //private tipo_membro tipo_membro;
     //private membro membro;
     @Override
     public int hashCode() {
-        final int prime = 31;
+        final int prime = 10;
         int result = 1;
         result = prime * result + id_avaliacao;
         return result;
