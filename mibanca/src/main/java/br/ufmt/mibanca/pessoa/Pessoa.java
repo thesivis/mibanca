@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -16,7 +17,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity // informando que se trata de uma entidade
-@Table(name = pessoa) // inserindo nome da tabela
+@Table(name = "pessoa") // inserindo nome da tabela
 @SequenceGenerator(name = "seqPessoa", sequenceName = "seq_pessoa_id", allocationSize = 1)
 
 @Getter
@@ -52,7 +53,14 @@ public class Pessoa {
 
     @Column(name = "email", length = 200)
     private String email;
+    //
+    @OneToMany(mappedBy = "pessoa")
+    private List<Aluno> alunos;
 
+    @OneToMany(mappedBy = "pessoa")
+    private List<Membro> membros;
+
+    //
     @Override
     public int hashCode() {
         final int prime = 31;
