@@ -35,7 +35,14 @@ public class Formacao {
     private String nome;
     @Column(name="carga_horaria", nullable = false)
     private float cargaHoraria;
-    
+
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
+    private Curso curso;
+    @OneToMany (mappedBy ="formacao") //verificar no banca e tipo banca (deve ser o mesmo nome do atributo formacao nas outras tabelas)
+    private List<TipoBanca> tipobancas;
+    @OneToMany (mappedBy ="formacao")
+    private List<Banca> bancas;
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -57,15 +64,4 @@ public class Formacao {
         return true;
     }
 
-
-    @ManyToOne
-    @JoinColumn(name = "curso_id")
-    private Curso curso;
-
-
-    @OneToMany (mappedBy ="formacao") //verificar no banca e tipo banca (deve ser o mesmo nome do atributo formacao nas outras tabelas)
-    private List<TipoBanca> tipobancas;
-
-    @OneToMany (mappedBy ="formacao")
-    private List<Banca> bancas;
 }
