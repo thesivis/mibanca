@@ -40,7 +40,7 @@ public class Formacao {
     @JoinColumn(name = "curso_id")
     private Curso curso;
     @OneToMany (mappedBy ="formacao") //verificar no banca e tipo banca (deve ser o mesmo nome do atributo formacao nas outras tabelas)
-    private List<TipoBanca> tipobancas;
+    private List<TipoBanca> tipoBancas;
     @OneToMany (mappedBy ="formacao")
     private List<Banca> bancas;
     @Override
