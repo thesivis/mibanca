@@ -1,13 +1,23 @@
 package br.ufmt.mibanca.formacao;
 
+
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import org.springframework.data.annotation.Id;
+
+import br.ufmt.mibanca.entity.Curso;
+import br.ufmt.mibanca.banca.Banca;
+import br.ufmt.mibanca.tipobanca.TipoBanca;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,17 +26,23 @@ import lombok.Setter;
 @SequenceGenerator(name="seqFormacao", sequenceName = "seq_formacao_id", allocationSize = 1)
 @Getter
 @Setter
+
 public class Formacao {
     @Id
     @GeneratedValue (generator = "seqFormacao", strategy = GenerationType.SEQUENCE)
     private int id;
-    @Column(name = "nome", length = 200)
+    @Column(name = "nome", length = 200, nullable = false)
     private String nome;
-    @Column(name="carga_horaria")
+    @Column(name="carga_horaria", nullable = false)
     private float cargaHoraria;
-    @ManyToOne 
-    //private Curso curso;
-    //private Tipo_Banca tipo_Banca;
+
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
+    private Curso curso;
+    @OneToMany (mappedBy ="formacao") //verificar no banca e tipo banca (deve ser o mesmo nome do atributo formacao nas outras tabelas)
+    private List<TipoBanca> tipoBancas;
+    @OneToMany (mappedBy ="formacao")
+    private List<Banca> bancas;
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -47,4 +63,5 @@ public class Formacao {
             return false;
         return true;
     }
+
 }
