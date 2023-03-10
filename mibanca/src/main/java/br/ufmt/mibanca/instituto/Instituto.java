@@ -49,7 +49,7 @@ public class Instituto {
 
     @Column(name = "ativo")
     private boolean ativo;
-    
+    //
     @Override
     public int hashCode() {
         final int prime = 31;
