@@ -1,15 +1,11 @@
 package br.ufmt.mibanca.avaliacao;
 
-import java.util.List;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,34 +19,31 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "avaliacao")
-@SequenceGenerator(name = "avaliacao", sequenceName = "id_avaliacao_id", allocationSize = 1)
+@SequenceGenerator(name = "avaliacao", sequenceName = "seq_avaliacao_id", allocationSize = 1)
 @Getter
 @Setter
 public class Avaliacao {
 
     @Id
     @GeneratedValue(generator = "Avaliacao", strategy = GenerationType.SEQUENCE)
-    private int id_avaliacao;
+    private int id;
     @ManyToOne
     @JoinColumn(name="banca_id")
-    private Banca idBanca;
+    private Banca banca;
     @ManyToOne
     @JoinColumn(name="membro_id")
-    private Membro idMembro;
+    private Membro membro;
     @ManyToOne
     @JoinColumn(name="apresentacao_id")
-    private Apresentacao idApresentacao;
-    private float nota_avaliacao;
-    private String comentario_avalicao;
+    private Apresentacao apresentacao;
+    private float nota;
+    private String comentario;
 
-    //@ManyToOne
-    //private tipo_membro tipo_membro;
-    //private membro membro;
     @Override
     public int hashCode() {
         final int prime = 10;
         int result = 1;
-        result = prime * result + id_avaliacao;
+        result = prime * result + id;
         return result;
     }
     @Override
@@ -62,7 +55,7 @@ public class Avaliacao {
         if (getClass() != obj.getClass())
             return false;
         Avaliacao other = (Avaliacao) obj;
-        if (id_avaliacao != other.id_avaliacao)
+        if (id != other.id)
             return false;
         return true;
     }
