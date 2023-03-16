@@ -24,7 +24,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "apresentacao")
-@SequenceGenerator(name = "seqApresentacao", sequenceName = "Apresentacao_id", allocationSize = 1)
+@SequenceGenerator(name = "seqApresentacao", sequenceName = "seq_apresentacao_id", allocationSize = 1)
 @Getter
 @Setter
 
@@ -33,26 +33,25 @@ public class Apresentacao {
     @GeneratedValue(generator = "seqApresentacao", strategy = GenerationType.SEQUENCE)
 
     private int id;
-    //chave estrangeira id_aluno
+    // chave estrangeira id_aluno
 
-    //chave estrangeira banca
+    // chave estrangeira banca
     @Column(name = "data_apresentacao")
     @Temporal(TemporalType.DATE)
-     Date dataApresentacao;
-     boolean situacao;
-     float media;
+    Date dataApresentacao;
+    boolean situacao;
+    float media;
 
-     @ManyToOne
-     @JoinColumn(name = "aluno_id")
-     private Aluno aluno;
-     
-     @ManyToOne
-     @JoinColumn(name = "banca_id")
-     private Banca banca;
+    @ManyToOne
+    @JoinColumn(name = "aluno_id")
+    private Aluno aluno;
 
-     @OneToMany(mappedBy = "apresentacao")
-     private List<Avaliacao> avaliacoes;
+    @ManyToOne
+    @JoinColumn(name = "banca_id")
+    private Banca banca;
 
+    @OneToMany(mappedBy = "apresentacao")
+    private List<Avaliacao> avaliacoes;
 
     @Override
     public int hashCode() {
@@ -61,6 +60,7 @@ public class Apresentacao {
         result = prime * result + id;
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -74,5 +74,5 @@ public class Apresentacao {
             return false;
         return true;
     }
-    
+
 }
