@@ -13,7 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 import br.ufmt.mibanca.pessoa.Pessoa;
 import br.ufmt.mibanca.apresentacao.Apresentacao;
 import lombok.Getter;
@@ -21,32 +20,28 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "aluno")
-@SequenceGenerator(name = "seqAluno", sequenceName =  "seq_aluno_id", allocationSize = 1)
+@SequenceGenerator(name = "seqAluno", sequenceName = "seq_aluno_id", allocationSize = 1)
 @Getter
 @Setter
 public class Aluno {
 
     @Id
-    @GeneratedValue(generator =  "seqAluno", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "seqAluno", strategy = GenerationType.SEQUENCE)
     private int id;
     @Column(name = "matricula", length = 100)
     private String matricula;
     @Column(name = "endereco")
-    
+
     private String endereco;
-    @Column(name =  "endereco", length =  100)
+    @Column(name = "email", length = 100)
     private String email;
-    @Column(name =  "email", length =  100)
-    //private Pesssoa pessoa;
 
     @ManyToOne
-       @JoinColumn(name = "pessoa_id")
-       private Pessoa pessoa; 
+    @JoinColumn(name = "pessoa_id")
+    private Pessoa pessoa;
 
-       @OneToMany(mappedBy =  "apresentacao")
-       private List<Apresentacao> apresentacoes;
-      
-
+    @OneToMany(mappedBy = "aluno")
+    private List<Apresentacao> apresentacoes;
 
     @Override
     public int hashCode() {
@@ -55,7 +50,7 @@ public class Aluno {
         result = prime * result + id;
         return result;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -68,8 +63,7 @@ public class Aluno {
         if (id != other.id)
             return false;
         return true;
-       
+
     }
 
 }
-
