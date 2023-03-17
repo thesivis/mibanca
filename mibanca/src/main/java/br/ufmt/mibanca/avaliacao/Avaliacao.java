@@ -19,13 +19,13 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "avaliacao")
-@SequenceGenerator(name = "avaliacao", sequenceName = "seq_avaliacao_id", allocationSize = 1)
+@SequenceGenerator(name = "seqAvaliacao", sequenceName = "seq_avaliacao_id", allocationSize = 1)
 @Getter
 @Setter
 public class Avaliacao {
 
     @Id
-    @GeneratedValue(generator = "Avaliacao", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "seqAvaliacao", strategy = GenerationType.SEQUENCE)
     private int id;
     @ManyToOne
     @JoinColumn(name="banca_id")
