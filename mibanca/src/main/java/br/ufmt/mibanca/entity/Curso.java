@@ -22,6 +22,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//RicGen10
+
 @Entity
 @Table(name = "curso")
 @SequenceGenerator(name = "seqCurso", sequenceName = "seq_curso_id")
