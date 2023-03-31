@@ -1,3 +1,4 @@
+// Meu usuário é RodrigoCelso
 package br.ufmt.mibanca.tipoMembro;
 
 import java.util.List;
