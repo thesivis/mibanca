@@ -29,16 +29,20 @@ public class Membro {
 
     @Id
     @GeneratedValue(generator = "seqMembro", strategy = GenerationType.SEQUENCE)
-
     private int id;
+
     @Column(name = "cargo", length = 200)
     private String cargo;
+
     @Column(name = "cod_matricula")
     private int codMatricula;
+
     @Column(name = "intituicao", length = 200)
     private String instituicao;
+    
     @Column(name = "endereco", length = 400)
     private String endereco;
+    
     @Column(name = "email", length = 200)
     private String email;
 
