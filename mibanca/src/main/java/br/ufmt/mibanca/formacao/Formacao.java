@@ -1,6 +1,5 @@
 package br.ufmt.mibanca.formacao;
 
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -26,17 +25,17 @@ import lombok.Setter;
 //Usuário Git MarcosARGomes
 @Entity
 @Table(name = "formacao")
-@SequenceGenerator(name="seqFormacao", sequenceName = "seq_formacao_id", allocationSize = 1)
+@SequenceGenerator(name = "seqFormacao", sequenceName = "seq_formacao_id", allocationSize = 1)
 @Getter
 @Setter
 
 public class Formacao {
     @Id
-    @GeneratedValue (generator = "seqFormacao", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "seqFormacao", strategy = GenerationType.SEQUENCE)
     private int id;
     @Column(name = "nome", length = 200, nullable = false)
     private String nome;
-    @Column(name="carga_horaria", nullable = false)
+    @Column(name = "carga_horaria", nullable = false)
     private float cargaHoraria;
 
     @ManyToOne
@@ -45,8 +44,9 @@ public class Formacao {
     @ManyToOne
     @JoinColumn(name = "tipo_banca_id")
     private TipoBanca tipoBanca;
-    @OneToMany (mappedBy ="formacao")
+    @OneToMany(mappedBy = "formacao")
     private List<Banca> bancas;
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -54,6 +54,7 @@ public class Formacao {
         result = prime * result + id;
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
