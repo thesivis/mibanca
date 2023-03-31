@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.ufmt.mibanca.banca.Banca;
-import br.ufmt.mibanca.tipoata.tipoata;
+import br.ufmt.mibanca.tipoata.TipoAta;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,7 +39,7 @@ public class Ata {
 
     @ManyToOne
     @JoinColumn(name = "tipo_ata_id")
-    private tipoata tipo;
+    private TipoAta tipo;
     
     @ManyToOne
     @JoinColumn(name = "banca_id")
