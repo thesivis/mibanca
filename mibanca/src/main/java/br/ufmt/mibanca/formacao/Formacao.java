@@ -21,6 +21,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+
+//Usuário Git MarcosARGomes
 @Entity
 @Table(name = "formacao")
 @SequenceGenerator(name = "seqFormacao", sequenceName = "seq_formacao_id", allocationSize = 1)
