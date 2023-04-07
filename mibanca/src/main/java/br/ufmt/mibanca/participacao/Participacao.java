@@ -28,7 +28,7 @@ public class Participacao {
     @GeneratedValue(generator = "seqParticipacao", strategy = GenerationType.SEQUENCE)
     private int id;
     private Boolean presente;
-    private String motivo_ausencia;
+    private String motivoAusencia;
     @ManyToOne
     @JoinColumn(name = "tipo_membro_id")
     private TipoMembro tipoMembro;
