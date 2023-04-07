@@ -43,7 +43,7 @@ import lombok.Setter;
 public class Banca {
     @Id
     @GeneratedValue(generator = "seqBanca", strategy = GenerationType.SEQUENCE) // definindo atributo como atributo gerado.
-    private int id_banca;
+    private int id;
     // generator = quem
     // strategy = tipo do gerador, que será gerencial (postgresql)
     //
@@ -78,7 +78,7 @@ public class Banca {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + id_banca;
+        result = prime * result + id;
         return result;
     }
     @Override
@@ -90,7 +90,7 @@ public class Banca {
         if (getClass() != obj.getClass())
             return false;
         Banca other = (Banca) obj;
-        if (id_banca != other.id_banca)
+        if (id != other.id)
             return false;
         return true;
     }
