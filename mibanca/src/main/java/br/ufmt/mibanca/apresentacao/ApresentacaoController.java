@@ -20,6 +20,15 @@ public class ApresentacaoController {
     public List<Apresentacao> index(){
         return repository.findAll();
     }
+@GetMapping(path = "/teste")
+public boolean dadoTeste(){
+    Apresentacao apresentacao = new Apresentacao();
+    apresentacao.setSituacao(false);
+
+    repository.save(apresentacao);
+    return true;
+}    
     
 }
+
 
