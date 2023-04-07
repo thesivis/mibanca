@@ -24,16 +24,4 @@ public class PessoaController {
         return repository.findAll();
     }
 
-    @GetMapping(path = "/teste")
-    @Transactional
-    public boolean dadoTeste(){
-        Pessoa pessoa = new Pessoa();
-
-
-
-        //comando para salvar no banco (abaixo)
-        repository.save(pessoa);
-        return true;
-    }
-
 }
