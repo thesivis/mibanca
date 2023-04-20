@@ -11,11 +11,12 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping(path= "/instituto")
 @RequiredArgsConstructor
 public class InstitutoController {
-private final InstitutoRepository repository;
+
+    private final InstitutoRepository repository;
 
 @GetMapping(path = "/")
-public List index(){
-return repository.findAll();
+public List<Instituto> index(){
+    return repository.findAll();
 }
 
 // @GetMapping(path = "/teste")
