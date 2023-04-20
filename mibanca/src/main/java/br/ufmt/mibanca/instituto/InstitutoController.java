@@ -19,13 +19,4 @@ public List<Instituto> index(){
     return repository.findAll();
 }
 
-// @GetMapping(path = "/teste")
-// public boolean dadoTeste(){
-// Aluno aluno = new Aluno();
-// aluno.setEmail("isconaifa@hotmail.com");
-// aluno.setEndereco("Boa Esperança");
-// aluno.setMatricula("800210101");
-// repository.save(aluno);
-// return true;
-// }
 }
