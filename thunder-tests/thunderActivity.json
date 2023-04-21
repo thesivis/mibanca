@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "e35923f0-a154-4660-b7da-3900f2164840",
+    "colId": "history",
+    "containerId": "",
+    "name": "http:/localhost:8080/tipobanca/1",
+    "url": "http:/localhost:8080/tipobanca/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-21T00:10:14.443Z",
+    "modified": "2023-04-21T00:10:14.443Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
