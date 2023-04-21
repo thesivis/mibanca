@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import br.ufmt.mibanca.cidade.Cidade;
-import br.ufmt.mibanca.entity.Curso;
+import br.ufmt.mibanca.curso.Curso;
 import lombok.Getter;
 import lombok.Setter;
 

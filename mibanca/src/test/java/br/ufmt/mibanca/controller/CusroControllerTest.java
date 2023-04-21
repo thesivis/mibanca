@@ -7,8 +7,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.ufmt.mibanca.entity.Curso;
-import br.ufmt.mibanca.repository.CursoRepository;
+import br.ufmt.mibanca.curso.Curso;
+import br.ufmt.mibanca.curso.CursoRepository;
 import lombok.RequiredArgsConstructor;
 
 @SpringBootTest

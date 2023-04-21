@@ -13,8 +13,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
-import br.ufmt.mibanca.entity.Curso;
 import br.ufmt.mibanca.banca.Banca;
+import br.ufmt.mibanca.curso.Curso;
 import br.ufmt.mibanca.tipobanca.TipoBanca;
 
 import lombok.EqualsAndHashCode;
