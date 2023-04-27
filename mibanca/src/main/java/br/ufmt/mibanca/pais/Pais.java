@@ -11,12 +11,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import br.ufmt.mibanca.estado.Estado;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "pais")
 @SequenceGenerator(name = "seqPais" , sequenceName = "sequence_pais_id", allocationSize = 1)
+@Data
 public class Pais {
     @Id
     @GeneratedValue(generator = "seqPais", strategy = GenerationType.SEQUENCE)
