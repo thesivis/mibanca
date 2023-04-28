@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class CursoRequest {
     private String nome;
     private String descricao;
-    private int cargaHoraria;
+    private Integer cargaHoraria;
 
     public Curso convertToCurso(){
         Curso curso = new Curso();
