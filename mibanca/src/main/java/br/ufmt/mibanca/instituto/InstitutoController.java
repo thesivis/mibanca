@@ -54,7 +54,7 @@ public class InstitutoController {
     }
 
     @PostMapping
-    public ResponseEntity cadastrar(InstitutoRequest request) {
+    public ResponseEntity cadastrar(@RequestBody InstitutoRequest request) {
         Instituto instituto = new Instituto();
         instituto.setNome(request.getNome());
 
