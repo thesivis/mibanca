@@ -11,7 +11,7 @@ public class TipoMembroRequest {
     private int enumerador;
     private String tipo;
 
-    public static TipoMembro to(TipoMembroRequest entidade){
+    public static TipoMembro transcribe(TipoMembroRequest entidade){
         TipoMembro request = new TipoMembro();
         request.setEnumerador(entidade.getEnumerador());
         request.setTipo(entidade.getTipo());
