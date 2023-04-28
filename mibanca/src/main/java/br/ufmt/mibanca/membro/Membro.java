@@ -78,5 +78,11 @@ public class Membro {
             return false;
         return true;
     }
+
+    public void setNome(Object nome) {
+    }
+
+    public void setSenha(Object senha) {
+    }
     
 }
