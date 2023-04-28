@@ -23,10 +23,14 @@ public static AlunoResponse from(Aluno entidade){
     AlunoResponse response = new AlunoResponse();
     response.setId(entidade.getId());
     response.setEmail(entidade.getEmail());
+    //response.setPessoa(entidade.getPessoa());
+    response.setMatricula(entidade.getMatricula());
+    response.setEndereco(entidade.getEndereco());
+    return response;
     /* response.endereco(entidade.getEndereco());
     response.getPessoa(entidade.getPessoa());
     response.getMatricula(entidade.getMatricula()); */
-    return response;
+  
 }
 
 
