@@ -47,4 +47,5 @@ public class MembroRequest {
         return this.email;
     }
 
+
 }

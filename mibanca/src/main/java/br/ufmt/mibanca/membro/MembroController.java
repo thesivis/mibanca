@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,7 +33,9 @@ public class MembroController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<MembroResponse> getById(@PathVariable int id){
+
         Optional<Membro> found = repository.findById(id);
+        
         if(found.isPresent()){
             MembroResponse response = MembroResponse.from(found.get());
             return ResponseEntity.ok().body(response);
@@ -43,45 +46,46 @@ public class MembroController {
     @DeleteMapping(path = "/{pk}")
     public ResponseEntity<Void> remover(@PathVariable(name = "pk") int id){
         try {
-        repository.deleteById(id);
-
-        return ResponseEntity.ok().build();
-        }   catch(EmptyResultDataAccessException erro){
+            repository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }catch(EmptyResultDataAccessException erro){
             return ResponseEntity.notFound().build();
         }
             
     }
 
-    @PostMapping (path = "create")
-    public ResponseEntity<String> cadastrar(@RequestBody MembroRequest request){
+    @PostMapping
+    public ResponseEntity<Object> cadastrar(@RequestBody MembroRequest request){
         Membro membro = new Membro();
+        membro.setCargo(request.getCargo());
+        membro.setCodMatricula(request.getCodMatricula());
+        membro.setInstituicao(request.getInstituicao());
+        membro.setEndereco(request.getEndereco());
         membro.setEmail(request.getEmail());
-        membro.setSenha(request.getSenha());
-        membro.setNome(request.getNome());
-        membro.setInstituicao(request.getInstituicao());;
 
         try{
             repository.save(membro); 
-        } catch(IllegalAccessError error){
+        } catch(IllegalArgumentException error){
             return ResponseEntity.badRequest().body("Dados Inválidos!");
         }
             return ResponseEntity.status(HttpStatus.CREATED).build();
 
         }
     
-    @PostMapping (path = "{/id}")
-    public ResponseEntity<String> atualizar(@PathVariable int id, @RequestBody MembroRequest request){
+    @PatchMapping (path = "/{id}")
+    public ResponseEntity<Void> atualizar(@PathVariable int id, @RequestBody MembroRequest request){
         Membro membro = new Membro();
         membro.setId(id);
+        membro.setCargo(request.getCargo());
+        membro.setCodMatricula(request.getCodMatricula());
+        membro.setInstituicao(request.getInstituicao());
+        membro.setEndereco(request.getEndereco());
         membro.setEmail(request.getEmail());
-        membro.setSenha(request.getSenha());
-        membro.setNome(request.getNome());
-        membro.setInstituicao(request.getInstituicao());;
 
         try{
             repository.save(membro); 
             return ResponseEntity.ok().build();
-        } catch(IllegalAccessError error){
+        } catch(IllegalArgumentException error){
             error.printStackTrace();
             return ResponseEntity.badRequest().build();
         }
